@@ -14,7 +14,7 @@
             <tr>
                 <td><a href="{{beer.url}}">{{ beer.title }}</a></td>
                 <td>{{ beer.originalBrewDate | date('F d, Y') }}</td>
-                <td>Stout</td>
+                <td>{% for style in beer.style %}<a href="{{ style.url }}">{{ style.title }}</a>{% endfor %}</td>
             </tr>
             {% endfor %}
         </table>

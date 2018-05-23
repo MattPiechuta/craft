@@ -12,8 +12,8 @@
       {% for recipe in craft.entries.section('recipes').limit(10) %}
       <tr>
           <td><a href="{{recipe.url}}">{{ recipe.title }}</a></td>
-          <td>{{ recipe.originalBrewDate }}</td>
-          <td>Stout</td>
+          <td>{{ recipe.originalBrewDate | date('F Y') }}</td>
+          <td>{% for style in recipe.style %} <a href="{{ style.url }}"> {{ style.title }} </a> {% endfor %}</td>
       </tr>
       {% endfor %}
   </table>
