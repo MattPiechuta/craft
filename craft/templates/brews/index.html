@@ -1,0 +1,24 @@
+{% extends "_landingPage" %}
+
+
+{% block content %}
+
+        <p>The most recent brews we've made.</p>
+        <table width="100%">
+            <tr>
+                <th>Beer Name</th>
+                <th>Original Brew Date</th>
+                <th>Style</th>
+            </tr>
+            {% for beer in craft.entries.section('brews').limit(10) %}
+            <tr>
+                <td><a href="{{beer.url}}">{{ beer.title }}</a></td>
+                <td>{{ beer.originalBrewDate | date('F d, Y') }}</td>
+                <td>Stout</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+
+{% endblock %}
