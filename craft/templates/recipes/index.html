@@ -2,4 +2,20 @@
 
 {% block content %}
 
+  <p>Some introduction content...</p>
+  <table width="100%">
+      <tr>
+          <th>Recipe Name</th>
+          <th>Original Brew Date</th>
+          <th>Style</th>
+      </tr>
+      {% for recipe in craft.entries.section('recipes').limit(10) %}
+      <tr>
+          <td><a href="{{recipe.url}}">{{ recipe.title }}</a></td>
+          <td>{{ recipe.originalBrewDate }}</td>
+          <td>Stout</td>
+      </tr>
+      {% endfor %}
+  </table>
+
 {% endblock %}
